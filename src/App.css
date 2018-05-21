@@ -1,0 +1,75 @@
+.main {
+background-image: url("images/bgg.jpg");
+    height: -webkit-fill-available;
+
+    /* Center and scale the image nicely */
+    /*background-position: center;*/
+    /*background-repeat: no-repeat;*/
+    background-size: cover;
+    /*background-size: auto;*/
+}
+.App {
+    position: relative;
+    top: 30%;
+    height: auto;
+    color:#ffffff;
+    text-align: center;
+    font-size: 16px;
+    font-weight: 400;
+}
+.container {
+  display: flex;
+  justify-content: space-around;
+  list-style-type: none;
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 44px;
+  background-color: #323232;
+  color:#ffffff ;
+
+}
+nav ul li:hover{
+  color: #6a6a69;
+  cursor: pointer;
+}
+.labelName{
+    display: block;
+    font-size: 20px;
+    font-weight: normal;
+}
+input[type=text]{
+
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+input[type=password]{
+
+    padding: 12px 20px;
+    margin: 8px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+form {
+
+    position: absolute;
+    top: 20%;
+    left: calc(50% - 12.5%);
+    /*margin:50px auto;*/
+    align-content: center;
+    height: auto;
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 auto;
+}
+@media only screen and (max-width: 700px) {
+    form {
+        width: 60%;
+    }
+}
