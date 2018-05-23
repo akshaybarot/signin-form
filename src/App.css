@@ -1,7 +1,8 @@
 .main {
 background-image: url("images/bgg.jpg");
     height: -webkit-fill-available;
-
+    height: 600px;
+    background-size: cover;
     /* Center and scale the image nicely */
     /*background-position: center;*/
     /*background-repeat: no-repeat;*/

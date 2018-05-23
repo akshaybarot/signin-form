@@ -1,7 +1,8 @@
 import React, {Component} from 'react';
-import { validateUser } from "../actions/index";
+import { login } from "../actions/index";
 import {connect} from "react-redux";
-import HomePage from "./HomePage";
+//import HomePage from "./HomePage";
+//import { login } from "./../actions/index";
 
 class Signin extends Component {
     constructor(){
@@ -36,50 +37,48 @@ class Signin extends Component {
         })
     }
 
+    handleSubmit(e){
+        e.preventDefault();
+        let user = this.state.currentUser;
+        //console.log(user);
+        this.props.login(user);
+        /*this.setState({
+            email: '',
+            password: ''
+        });*/
+    }
     render() {
-        console.log(this.props);
 
         return (
             <div>
                 <div className="App">
-                    <form onSubmit={() => {
-                        this.props.validateUser(this.state.currentUser)}}>
+                    <form onSubmit={(e) => {this.handleSubmit(e)}}>
                         <h2 className="labelName">
                          Sign in to Apple Store
                         </h2>
                         <input type="text" id="uname" name="username" placeholder="Apple Id" value={this.state.userId} onChange={userId => {this.handleUserId(userId)}} />
                         <input type="password" id="pwd" name="password" placeholder="Password" value={this.state.password} onChange={pwd => {this.handlePassword(pwd)}}/>
                         <button className="btn btn-success btn-sm w-100" >
-                            Add</button>
-                        <ul>
-                            <li>
-                                {this.state.userId}
-                            </li>
-                            <li>
-                                {this.state.password}
-                            </li>
-                            <li>
-                                {this.state.currentUser.id}, {this.state.currentUser.password}
-                            </li>
-
-                        </ul>
+                            Sign in to Apple Store</button>
                     </form>
                 </div>
-                <HomePage match={this.props.currentUser}/>
-
+                    <div className="message">
+                        {this.props.isLoginSuccess}
+                        { this.props.isLoginPending && <div>Please wait...</div> }
+                        { this.props.isLoginSuccess && <div>Success.</div> }
+                        { /*this.props.state.loginError && <div>{loginError.message}</div> */}
+                        </div>
             </div>
     );
     }
     }
 function mapDispatchToProps(dispatch) {
     return {
-        validateUser: (user) => dispatch(validateUser(user))
+        login: (user) => dispatch(login(user))
     };
 }
-function mapStateToProps(users) {
-    console.log(users);
-   // const { currentState } = {user};
-    return users;
+function mapStateToProps(currentState) {
+    return currentState;
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(Signin);

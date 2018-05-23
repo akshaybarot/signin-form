@@ -12,15 +12,13 @@ class HomePage extends Component{
     // const {currentState} = this.props;
      return (
        <div>
-           <p>
-               Akshay
-               {this.props.match.username}
-               {this.props.match.id}
-
-               {console.log(this.props)}
-               {/*currentState.valid*/}
-               {/*this.props.user.currentUser*/}
-           </p>
+           {/*<p>*/}
+               {/*{this.props.match.username}*/}
+               {/*{this.props.match.id}*/}
+               {/*{console.log(this.props)}*/}
+               {/*/!*currentState.valid*!/*/}
+               {/*/!*this.props.user.currentUser*!/*/}
+           {/*</p>*/}
        </div>
      );
  }

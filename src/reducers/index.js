@@ -1,4 +1,15 @@
-import { VALIDATE_USER } from "../actions/index";
+/*,
+        {
+            username: 'Shawn',
+            id: 'xyz@abc.com',
+            password: 'XYZabc123',
+        },
+        {
+            username: 'John',
+            id: 'xyz@xyz.com',
+            password: 'Xyz@Xyz',
+        },*/
+import { LOGIN_ERROR, LOGIN_PENDING, LOGIN_SUCCESS } from "../actions/index";
 
 const initialState = {
     credentials: [
@@ -11,44 +22,66 @@ const initialState = {
             username: 'Will',
             id: 'abc@xyz.com',
             password: 'admin123',
-        },
-        {
-            username: 'Shawn',
-            id: 'xyz@abc.com',
-            password: 'XYZabc123',
-        },
-        {
-            username: 'John',
-            id: 'xyz@xyz.com',
-            password: 'Xyz@Xyz',
-        },
+        }
     ],
-    valid: false,
     currentUser: {username: "", id: ""},
+    isLoginSuccess: false,
+    isLoginPending: false,
+    loginError: null
 };
 
 const user = (state = initialState, action) => {
+    let dummy_data = state;
+    console.log(dummy_data);
+
     switch (action.type) {
 
-        case VALIDATE_USER:
-            let id = action.user.id;
-            let pwd = action.user.password;
-            let match = false;
+        /*case VALIDATE_USER:
+            let id = action.payload.user.id;
+            let pwd = action.payload.user.password;
+            //let match = false;
             let currentUsr = {};
+            let dummy_data = state.credentials;
+            console.log(dummy_data);
 
-            for(let usr of state.credentials){
-                if(id === usr.id){
-                    if(pwd === usr.password){
-                        match = true;
+            for(let usr in state.credentials){
+                console.log('hi');
+                if(id === usr.id && pwd === usr.password){
+                        //match = true;
                         currentUsr = { username: usr.username, id: usr.id};
+                    console.log('hey');
+
+                    return action.payload.callback(null);
                     }
-                }
+                    else{
+                    console.log('hello');
+
+                    return action.payload.callback(new Error('Invalid email and password'));
+                    }
+
             }
-            console.log(match + currentUsr);
+            console.log(action.payload);
             return {
                 ...state,
-                valid: match,
                 currentUser: currentUsr
+            };*/
+
+        case LOGIN_PENDING:
+            return {
+                ...state,
+                isLoginPending: action.isLoginPending
+            };
+
+        case LOGIN_SUCCESS:
+            return {
+                ...state,
+                isLoginSuccess: action.isLoginSuccess
+            };
+
+        case LOGIN_ERROR:
+            return {
+                ...state,
+                loginError: action.loginError
             };
 
         default :
