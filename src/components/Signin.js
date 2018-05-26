@@ -1,8 +1,11 @@
 import React, {Component} from 'react';
 import { login } from "../actions/index";
 import {connect} from "react-redux";
-//import HomePage from "./HomePage";
-//import { login } from "./../actions/index";
+import { Redirect } from 'react-router-dom';
+import Header from "./Header";
+import './Signin.css';
+//import '../Dummy.css';
+import logo from '../images/Spinner-2.svg';
 
 class Signin extends Component {
     constructor(){
@@ -40,41 +43,46 @@ class Signin extends Component {
     handleSubmit(e){
         e.preventDefault();
         let user = this.state.currentUser;
-        //console.log(user);
-        this.props.login(user);
-        /*this.setState({
-            email: '',
-            password: ''
-        });*/
+        console.log(this.props.credentials);
+        let credential = this.props.credentials;
+        console.log(credential);
+        this.props.login(user, credential);
     }
     render() {
 
         return (
-            <div>
-                <div className="App">
+            <div className="main">
+
+            <div className="app">
+                <Header/>
                     <form onSubmit={(e) => {this.handleSubmit(e)}}>
                         <h2 className="labelName">
                          Sign in to Apple Store
                         </h2>
-                        <input type="text" id="uname" name="username" placeholder="Apple Id" value={this.state.userId} onChange={userId => {this.handleUserId(userId)}} />
+                        <input type="email" id="u name" name="username" placeholder="Apple Id" value={this.state.userId} onChange={userId => {this.handleUserId(userId)}} />
                         <input type="password" id="pwd" name="password" placeholder="Password" value={this.state.password} onChange={pwd => {this.handlePassword(pwd)}}/>
-                        <button className="btn btn-success btn-sm w-100" >
-                            Sign in to Apple Store</button>
+                        <button type="submit" className="btn btn-success btn-sm w-10">
+                              <i className="fas fa-sign-in-alt"></i>
+                        </button>
+                        <div>
+
+                            {this.props.isLoginPending && <div>
+                                <img src={logo} className="App-logo" alt="logo" />
+                            </div>}
+                            { this.props.loginError && <div className="Appcenter"><i class="far fa-times-circle"></i> {this.props.loginError.message}</div> }
+
+                            { this.props.isLoginSuccess && <Redirect from="/" to="/homePage" /> }
+
+                        </div>
                     </form>
                 </div>
-                    <div className="message">
-                        {this.props.isLoginSuccess}
-                        { this.props.isLoginPending && <div>Please wait...</div> }
-                        { this.props.isLoginSuccess && <div>Success.</div> }
-                        { /*this.props.state.loginError && <div>{loginError.message}</div> */}
-                        </div>
             </div>
     );
     }
     }
 function mapDispatchToProps(dispatch) {
     return {
-        login: (user) => dispatch(login(user))
+        login: (user, credentials) => dispatch(login(user, credentials))
     };
 }
 function mapStateToProps(currentState) {

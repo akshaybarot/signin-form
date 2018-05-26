@@ -2,35 +2,48 @@
 export const LOGIN_PENDING = 'LOGIN_PENDING';
 export const LOGIN_SUCCESS = 'LOGIN_SUCCESS';
 export const LOGIN_ERROR = 'LOGIN_ERROR';
+export const CURRENT_USER = 'CURRENT_USER';
 
-function validateUser(user, callback) {
+function validateUser(validateData, callback) {
     setTimeout(() => {
-        console.log(user);
-        if (user.id === 'admin@example.com' && user.password === 'admin') {
-            console.log('Hi');
-            return callback(null);
-        } else {
-            console.log('Helllo');
-
-            return callback(new Error('Invalid email and password'));
+        console.log(validateData);
+        //console.log(credentials);
+        for(let usr of validateData.credentials){
+            console.log(usr);
+            if(validateData.user.id === usr.id && validateData.user.password === usr.password){
+                console.log('hey');
+                return callback(null);
+            }
         }
+        return callback(new Error('Invalid email and password'));
     }, 1000);
 }
 
-export function login(user) {
+export function login(user, credentials) {
     return dispatch => {
         dispatch(loginPending(true));
         dispatch(loginSuccess(false));
         dispatch(loginError(null));
 
-        validateUser(user, error => {
+        console.log(credentials);
+        let validateData = {user: user, credentials: credentials};
+
+        validateUser(validateData, error => {
             dispatch(loginPending(false));
         if (!error) {
             dispatch(loginSuccess(true));
+            dispatch(currentUser(validateData.user.id));
         } else {
             dispatch(loginError(error));
         }
     });
+    }
+}
+
+function currentUser(user){
+    return {
+        type: CURRENT_USER,
+        user
     }
 }
 
@@ -54,14 +67,3 @@ function loginError(loginError) {
         loginError
     }
 }
-
-/*
-function callLoginApi(email, password, callback) {
-    setTimeout(() => {
-        if (email === 'admin@example.com' && password === 'admin') {
-        return callback(null);
-    } else {
-        return callback(new Error('Invalid email and password'));
-    }
-}, 1000);
-}*/
