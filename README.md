@@ -7,8 +7,8 @@
 	The valid credentials for this app are:
    
    	Username          Id           Password
-      		David        abc@abc.com     ABCabc123
-      		Will         abc@xyz.com     admin123
+      	- David        abc@abc.com     ABCabc123
+      	- Will         abc@xyz.com     admin123
       		Shawn        xyz@abc.com     XYZabc123
       		John         xyz@xyz.com     Xyz@Xyz
       
