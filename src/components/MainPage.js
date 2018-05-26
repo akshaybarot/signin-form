@@ -12,8 +12,8 @@ class MainPage extends Component{
 
           <div className="Mainpage">
               <Header/>
-              <h1><Link to='/'> <i class="fas fa-user-tie"></i></Link> Hi, This is {this.props.currentUser.username}</h1>
-
+              <h1><Link to='/'> <i className="fas fa-user-tie" /></Link> Hi, {this.props.currentUser.username}</h1>
+              <h1>Welcome to Apple store</h1>
           </div>
 
 

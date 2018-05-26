@@ -31,8 +31,6 @@ const initialState = {
 };
 
 const user = (state = initialState, action) => {
-    let dummy_data = state;
-    console.log(dummy_data);
 
     switch (action.type) {
         case LOGIN_PENDING:

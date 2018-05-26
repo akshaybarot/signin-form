@@ -62,14 +62,14 @@ class Signin extends Component {
                         <input type="email" id="u name" name="username" placeholder="Apple Id" value={this.state.userId} onChange={userId => {this.handleUserId(userId)}} />
                         <input type="password" id="pwd" name="password" placeholder="Password" value={this.state.password} onChange={pwd => {this.handlePassword(pwd)}}/>
                         <button type="submit" className="btn btn-success btn-sm w-10">
-                              <i className="fas fa-sign-in-alt"></i>
+                              <i className="fas fa-sign-in-alt"/>
                         </button>
                         <div>
 
                             {this.props.isLoginPending && <div>
                                 <img src={logo} className="App-logo" alt="logo" />
                             </div>}
-                            { this.props.loginError && <div className="Appcenter"><i class="far fa-times-circle"></i> {this.props.loginError.message}</div> }
+                            { this.props.loginError && <div className="Appcenter"><i className="far fa-times-circle"/> {this.props.loginError.message}</div> }
 
                             { this.props.isLoginSuccess && <Redirect from="/" to="/homePage" /> }
 

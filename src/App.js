@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import Signin from "./components/Signin";
-import Header from "./components/Header";
 import { BrowserRouter, Route } from 'react-router-dom';
 import MainPage from "./components/MainPage";
 
@@ -11,8 +10,6 @@ class App extends Component {
     return (
         <BrowserRouter>
             <div className="main">
-
-                {/*<Header/>*/}
                 <Route exact path="/" component={Signin}/>
                 <Route exact path="/homePage" component={MainPage} />
             </div>

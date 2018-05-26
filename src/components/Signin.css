@@ -1,7 +1,8 @@
 .main{
-    background-image: url("../images/bgg.jpg");
+    background-image: url("../images/bgg-1.jpg");
     height: -webkit-fill-available;
     background-size: cover;
+    background-position: 80% center;
 }
 .app {
     position: relative;
@@ -16,7 +17,7 @@
 }
 form {
     position: absolute;
-/*    margin-top: 20%;*/
+    top: 180%;
     color: white;
     left: calc(50% - 12.5%);
     align-content: center;
@@ -41,7 +42,7 @@ form button{
         width: 20%;
     }
     .main{
-        background: url("../images/bgg.jpg") no-repeat center center fixed;
+        background: url("../images/bgg-1.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -52,9 +53,8 @@ form button{
 
 }
 @media only screen and (min-width: 768px) and (max-width: 1024px) {
-
     .main{
-        background: url("../images/bgg.jpg") no-repeat center center fixed;
+        background: url("../images/bgg-1.jpg") no-repeat center center fixed;
         -webkit-background-size: cover;
         -moz-background-size: cover;
         -o-background-size: cover;
@@ -62,7 +62,6 @@ form button{
         height:-webkit-fill-available;
         overflow: hidden;
     }
-
     form{
        width: 50%;
         left: 25%;
