@@ -1,15 +1,15 @@
-##1. Introduction
+1. Introduction
 
 The purpose of this application is to simulate a normal sign in flow. The application renders a Sign-in form. If the user enters the correct pair of email and password, he/she will be directed to a greetings page. If either of email and/or password are incorrect, an invalid sign-in message will be shown. 
 
-	The application is built in React with Redux for store management. For now, the valid email/password data is hard coded and is stored as a state in the store.
+The application is built in React with Redux for store management. For now, the valid email/password data is hard coded and is stored as a state in the store.
 
 	The valid credentials for this app are:
     Username          Id           Password
-    -  David        abc@abc.com     ABCabc123
-    -  Will         abc@xyz.com     admin123
-    -  Shawn        xyz@abc.com     XYZabc123
-    -  John         xyz@xyz.com     Xyz@Xyz
+      David        abc@abc.com     ABCabc123
+      Will         abc@xyz.com     admin123
+      Shawn        xyz@abc.com     XYZabc123
+      John         xyz@xyz.com     Xyz@Xyz
       
 2. How to get code?
 
