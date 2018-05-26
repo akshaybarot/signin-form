@@ -5,11 +5,12 @@
 	The application is built in React with Redux for store management. For now, the valid email/password data is hard coded and is stored as a state in the store.
 
 	The valid credentials for this app are:
-    Username          Id           Password
-      David        abc@abc.com     ABCabc123
-      Will         abc@xyz.com     admin123
-      Shawn        xyz@abc.com     XYZabc123
-      John         xyz@xyz.com     Xyz@Xyz
+   
+   	Username          Id           Password
+      	David        abc@abc.com     ABCabc123
+      	Will         abc@xyz.com     admin123
+      	Shawn        xyz@abc.com     XYZabc123
+      	John         xyz@xyz.com     Xyz@Xyz
       
 2. How to get code?
 
